@@ -1,5 +1,6 @@
 body {
-font-family:Lucida Sans;
+font-family: courier new;
+font-weight: bolder;
 background-color:#cccccc;
 }
 
@@ -17,6 +18,7 @@ background: #fff;
 display:table;
 padding: 20px;
 box-shadow: 0px 0px 20px grey;
+
 }
 
 .login-form {
@@ -146,6 +148,8 @@ div.content {
   color: #d3d3d3;
   padding: 16px;
   text-align: center;
+  font-weight: lighter;
+  font-size: 0.8em;
 }
 
 .texto-codigo{

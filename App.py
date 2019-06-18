@@ -44,6 +44,7 @@ class Curso(db.Model):
     descricao = db.Column(db.String(150))
     vendas = db.Column(db.Integer)
     preco = db.Column(db.Numeric(5,2))
+    url = db.Column(db.String(250), unique=True)
 
 
 
@@ -168,12 +169,12 @@ def recuperar_senha():
 
 #Rota de curso disponível para compra
 
-@app.route('/curso')
-def curso():
-    if not current_user.is_authenticated:
-        return render_template('curso.html' , u = 'Login')
-    else:
-        return render_template('curso.html', u = True, ue = current_user.email)
+@app.route('/curso/<idcurso>')
+@login_required
+def curso(idcurso):
+    url = Curso.query.filter_by(id=idcurso)
+    url = [u.url for u in url]
+    return render_template('curso.html', u = True, ue = current_user.email, url=url)
 
 
 

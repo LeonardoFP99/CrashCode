@@ -101,16 +101,21 @@
 
   {% endif %}
 
-  <div class="card">
 
-    <div class="card-body">
+  {% for i in range(6) %}
 
-      <p>{{ titulo[0] }}</p>
-      <p class="card-preco">R$ {{ preco[0] }}</p>
-
+    <div class="card">
+      <a class="card-link" href='/curso/{{ id[i] }}'>
+        <div class="card-body">
+          <p>{{ titulo[i] }}</p>
+          <p class="small">{{ descricao[i] }}</p>
+          <p class="card-preco">R$ {{ preco[i] }}</p>
+        </div>
+      </a>
     </div>
 
-  </div>
+  {% endfor %}
+
 
 </div>
 

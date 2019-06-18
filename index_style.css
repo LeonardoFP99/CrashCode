@@ -1,6 +1,27 @@
 body {
-font-family:Lucida Sans;
+font-family: courier new;
+font-weight: bolder;
 background-color:#cccccc;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #000;
+  transition: 0.5s;
+}
+
+.card-link a.active{
+
+  background-color: #4CAF50;
+  color: white;
+
+}
+
+.card-link a:hover:not(.active){
+
+  background-color: #22126d;
+  color: white;
+
 }
 
 .responsive-img {
@@ -50,12 +71,8 @@ box-shadow: none;
 border: 0px solid transparent;
 background: #341daa;
 color: #ffffff;
-font-size: 16px;
-line-height: 25px;
-padding: 10px 0px;
 border-radius: 10px;
 transition: 0.25s;
-width: 250px;
 
 }
 
@@ -145,6 +162,8 @@ div.content {
   color: #d3d3d3;
   padding: 16px;
   text-align: center;
+  font-weight: lighter;
+  font-size: 0.8em;
 }
 
 .texto-codigo{
@@ -156,11 +175,15 @@ div.content {
 
 .card{
 
-margin-top: 25px;
-
-margin-bottom: 25px;
+margin: 25px;
 
 box-shadow: 0px 0px 10px grey;
+
+font-family: courier new;
+
+font-weight: bolder;
+
+background-color: #f2f2f2;
 
 }
 
@@ -168,5 +191,11 @@ box-shadow: 0px 0px 10px grey;
 
 color: #341daa;
 text-align: right;
+
+}
+
+.card-btn{
+
+text-align: center;
 
 }
