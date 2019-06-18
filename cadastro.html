@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    {% block styles %}
+
+    <link rel="stylesheet" href="{{url_for('.static', filename='bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='jquery-ui.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='jquery-ui.structure.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='theme.css')}}">
+
+    {% endblock %}
+
+    {% block scripts %}
+
+    <script type="text/javascript" src="{{url_for('.static', filename='bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('.static', filename='jquery.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('.static', filename='jquery-ui.js')}}"></script>
+    <script type="text/javascript">
+      $( function() {
+        $( "#erro-msg" ).dialog({
+          modal: true,
+          title: '',
+          draggable: false,
+          resizable: false,
+          closeOnEscape: true,
+          modal: true,
+          buttons: {
+            Ok: function() {
+              $( this ).dialog( "close" );
+            }
+          }
+        });
+      } );
+    </script>
+
+    {% endblock %}
+
+    <title>Cadastro</title>
+
+</head>
+<body>
+
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div class="sidebar">
+
+  <img src="/static/logo.png" alt="logo" class="responsive-img">
+
+  {% if u %}
+  <p class="texto-cinza">{{ ue }}</p>
+  {% else %}
+  <p class="texto-codigo">code.master(programming);</p>
+  {% endif %}
+
+  <a href="/">Home</a>
+
+  {% if u %}
+  <a href="/meus_cursos">Meus cursos</a>
+  <a href="/logout">Sair</a>
+  {% else %}
+  <a href="/login">Login</a>
+  {% endif %}
+
+  <p class="texto-cinza">2019 © Leonardo Flor de Paula</p>
+
+</div>
+
+<!-- Page content -->
+<div class="content">
+
+  {% if senha_dif %}
+
+  <div id="erro-msg">Senhas não coincidem!</div>
+
+  {% endif %}
+
+  {% if email_usa %}
+
+  <div id="erro-msg">Este e-mail já está sendo utilizado!</div>
+
+  {% endif %}
+
+  
+
+
+  <div id="login-column">
+
+    <div class="login-box">
+
+      <div class="login-form">
+
+          <form action='/cadastro' method="POST">
+
+            {{ form.hidden_tag() }}
+
+            <div class="control-group">
+
+              {{ form.email(class_="input") }}
+
+            </div>
+
+            <div class="control-group">
+
+              {{ form.senha(class_="input") }}
+
+            </div>
+
+            <div class="control-group">
+
+              {{ form.rsenha(class_="input") }}
+
+            </div>
+
+            <div id="button-box">
+
+              <p><input type="submit" value="CONFIRMAR" class="btn"></p>
+
+            </div>
+
+          </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
+
+</body>
+</html>

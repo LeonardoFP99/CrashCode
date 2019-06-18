@@ -1,0 +1,156 @@
+body {
+font-family:Lucida Sans;
+background-color:#cccccc;
+}
+
+.responsive-img {
+  padding: 20px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.login-box {
+align-items: center;
+width: 350px;
+background: #fff;
+display:table;
+padding: 20px;
+box-shadow: 0px 0px 20px grey;
+}
+
+.login-form {
+text-align: center;
+vertical-align:middle;
+display:table-cell;
+}
+
+.control-group {
+margin-bottom: 10px;
+}
+
+.input {
+text-align: center;
+background-color: #d9d9d9;
+border: 2px solid transparent;
+border-radius: 10px;
+font-size: 16px;
+font-weight: 200;
+padding: 10px 0px;
+width: 250px;
+transition: border .5s;
+}
+
+input:focus {
+border: 2px solid #341daa;
+box-shadow: none;
+}
+
+.btn {
+border: 0px solid transparent;
+background: #341daa;
+color: #ffffff;
+font-size: 16px;
+line-height: 25px;
+padding: 10px 0px;
+border-radius: 10px;
+transition: 0.25s;
+width: 250px;
+
+}
+
+.btn:hover {
+background: #22126d;
+color: #ffffff;
+}
+
+#button-box{
+text-align: center;
+}
+
+.link{
+color:#4169e1;
+}
+
+.link:hover{
+text-decoration: underline;
+}
+
+/* The side navigation menu */
+.sidebar {
+ margin: 0;
+ padding: 0;
+ width: 300px;
+ background-color: #341daa;
+ position: fixed;
+ height: 100%;
+ overflow: auto;
+ box-shadow: 0px 0px 20px grey;
+}
+
+/* Sidebar links */
+.sidebar a {
+ display: block;
+ color: white;
+ padding: 16px;
+ text-decoration: none;
+ text-align: center;
+ transition: 0.5s;
+}
+
+/* Active/current link */
+.sidebar a.active {
+ background-color: #4CAF50;
+ color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+ background-color: #22126d;
+ color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+ margin-left: 300px;
+ padding: 1px 16px;
+ height: 100vh;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items:center;
+
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+ .sidebar {
+   width: 100%;
+   height: auto;
+   position: relative;
+ }
+ .sidebar a {float: left;}
+ div.content {margin-left: 0; align-items:flex-start; margin-top: 40px; height: 100%;}
+
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+ .sidebar a {
+   text-align: center;
+   float: none;
+ }
+}
+
+.texto-cinza{
+  color: #d3d3d3;
+  padding: 16px;
+  text-align: center;
+}
+
+.texto-codigo{
+  color: #d3d3d3;
+  padding: 16px;
+  text-align: center;
+  font-family: courier new;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    {% block styles %}
+
+
+    <link rel="stylesheet" href="{{url_for('.static', filename='bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='index_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='jquery-ui.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='jquery-ui.structure.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='theme.css')}}">
+
+  	{% endblock %}
+
+  	{% block scripts %}
+
+    <script type="text/javascript" src="{{url_for('.static', filename='bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('.static', filename='jquery.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('.static', filename='jquery-ui.js')}}"></script>
+    <script type="text/javascript">
+      $( function() {
+        $( "#nu-msg" ).dialog({
+          modal: true,
+          title: '',
+          draggable: false,
+          resizable: false,
+          closeOnEscape: true,
+          modal: true,
+          buttons: {
+            Ok: function() {
+              $( this ).dialog( "close" );
+            }
+          }
+        });
+      } );
+    </script>
+
+  	{% endblock %}
+
+    <title>code.learn();</title>
+
+</head>
+<body>
+
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<!-- The sidebar -->
+<div class="sidebar">
+
+  <img src="/static/logo.png" alt="logo" class="responsive-img">
+
+  {% if u %}
+  <p class="texto-cinza">{{ ue }}</p>
+  {% else %}
+  <p class="texto-codigo">code.master(programming);</p>
+  {% endif %}
+
+  {% if u %}
+  <a href="/meus_cursos">Meus cursos</a>
+  <a href="/logout">Sair</a>
+  {% else %}
+  <a href="/login">Login</a>
+  <a href="/cadastro">Cadastro</a>
+  {% endif %}
+
+  <p class="texto-cinza">2019 © Leonardo Flor de Paula</p>
+
+</div>
+
+<!-- Page content -->
+<div class="content">
+
+  {% if request.args.get('usuario_cad') %}
+
+  <div id="nu-msg">
+    Novo usuário cadastrado!
+    <br>
+    Token para recuperação de senha:
+    <br>
+    <b>{{ request.args.get('token') }}</b>
+    <br>
+    <i>(Recomenda-se anotar este token.)</i>
+  </div>
+
+  {% endif %}
+
+  {% if request.args.get('alterou_senha') %}
+
+  <div id='nu-msg'>Senha alterada com sucesso</div>
+
+  {% endif %}
+
+  <div class="card">
+
+    <div class="card-body">
+
+      <p>{{ titulo[0] }}</p>
+      <p class="card-preco">R$ {{ preco[0] }}</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    {% block styles %}
+
+
+  		<link rel="stylesheet" href="{{url_for('.static', filename='bootstrap.min.css')}}">
+  		<link rel="stylesheet" href="{{url_for('.static', filename='index_style.css')}}">
+
+  	{% endblock %}
+
+  	{% block scripts %}
+
+  		<script src="/static/jquery.min.js"></script>
+  		<script src="/static/bootstrap.min.js"></script>
+
+  	{% endblock %}
+
+    <title>Meus cursos</title>
+
+</head>
+<body>
+
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<!-- The sidebar -->
+<div class="sidebar">
+
+  <img src="/static/logo.png" alt="logo" class="responsive-img">
+
+  {% if u %}
+  <p class="texto-cinza">{{ ue }}</p>
+  {% else %}
+  <p class="texto-codigo">code.master(programming);</p>
+  {% endif %}
+
+  <a href="/">Home</a>
+
+  {% if u %}
+  <a href="/logout">Sair</a>
+  {% else %}
+  <a href="/login">Login</a>
+  <a href="/cadastro">Cadastro</a>
+  {% endif %}
+
+  <p class="texto-cinza">2019 © Leonardo Flor de Paula</p>
+
+</div>
+
+<!-- Page content -->
+<div class="content">
+
+  
+
+</div>
+
+{% endblock %}
+
+</body>
+</html>
